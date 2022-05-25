@@ -10,5 +10,5 @@ def show_information():
               f'Metoda 2 - Wpisz swoje hasło i klikni "Spwardz hasło" '
 
     frame = tk.Label(master=frame, text=message)
-    frame.pack(fill=tk.BOTH, expand=True)
+    frame.pack(fill=tk.BOTH, expand=True, side=tk.LEFT)
 
