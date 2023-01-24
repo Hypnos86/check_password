@@ -1,10 +1,14 @@
 from requests import get
 from hashlib import sha1
+from datetime import date
 
 
-class Password:
+class Password():
+    nowDate = date()
+    textName= f'raport z dnia {nowDate}.txt'
     def __init__(self, file) -> None:
         self.file = file
+
         with open(self.file, mode='r', encoding='utf-8') as read_file:
             self.word_list = [line.strip() for line in read_file]
 
@@ -36,5 +40,5 @@ class Password:
             print(f'hasło: {word}\n hasz: {hash_password}\n prefix: {prefix_password}\n sufix: {sufix_password}\n')
 
 
-password = Password('password.txt')
+password = Password(Password.textName)
 password.check_password()

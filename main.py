@@ -1,16 +1,19 @@
 '''Aplikacja  Check_Passsword'''
 import tkinter as tk
-from function.info import show_information
-from function.write import Password
+from Repository.info import Info
+from Repository.write import Password
 
 windows = tk.Tk()
-windows.geometry('250x200')
+windows.geometry('350x250')
 windows.title('CheckPass')
 windows.iconbitmap('ico/chain.ico')
 windows.columnconfigure(1, weight=2)
 windows.rowconfigure(1, weight=1)
 
-about = tk.Button(master=windows, text='Instrukcja', command=show_information, width=15)
+password = Password()
+info = Info()
+
+about = tk.Button(master=windows, text='Instrukcja', command=info.show_information, width=15)
 about.grid(column=0, row=0, pady=5, padx=10, sticky=tk.N, columnspan=2)
 
 folder = tk.Button(master=windows, text='Plik', width=15)
@@ -19,11 +22,11 @@ folder.grid(column=0, row=1, pady=5, padx=5, sticky=tk.W)
 button_folder = tk.Button(master=windows, text='Sprawdz', width=15)
 button_folder.grid(column=1, row=1, pady=5, padx=5, sticky=tk.E)
 
-folder_label = tk.Label(master=windows, text='lalal')
+folder_label = tk.Label(master=windows, text='---')
 folder_label.grid(column=0, row=2, columnspan=2, pady=5, padx=15, sticky=tk.EW)
 
-open_frame = Password()
-button_pass = tk.Button(master=windows, text='Sprawdz hasło', command=open_frame.open_frame, width=15)
+
+button_pass = tk.Button(master=windows, text='Sprawdz hasło', command=password.open_frame, width=15)
 button_pass.grid(column=0, row=3, columnspan=2, pady=5, padx=10, sticky=tk.N)
 
 # exit
